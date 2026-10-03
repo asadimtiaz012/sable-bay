@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sable Bay — Luxury Coastal Resort Concept</title>
+<meta name="description" content="A modern luxury coastal resort website concept focused on immersive visuals, elegant hospitality design and responsive user experience.">
+<meta name="theme-color" content="#0e2f3c">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sable Bay — Luxury Coastal Resort Concept">
+<meta property="og:description" content="A modern luxury coastal resort website concept focused on immersive visuals, elegant hospitality design and responsive user experience.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1672841828459-bc913fdcd995?crop=entropy&cs=srgb&fm=jpg&ixlib=rb-4.1.0&w=1200&q=80">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --navy:        #0e2f3c;
+    --navy-deep:   #081e27;
+    --ocean:       #1c6e83;
+    --seafoam:     #8fc7bd;
+    --sand:        #eee3ce;
+    --sand-light:  #f8f4ec;
+    --paper:       #fbf9f4;
+    --ink:         #16262b;
+    --ink-soft:    #4a5c60;
+    --gold:        #b6924f;
+    --max-w: 1240px;
+    --edge: clamp(24px, 6vw, 96px);
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Manrope', sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+  button{
+    font:inherit;
+    color:inherit;
+    background:none;
+    border:none;
+    margin:0;
+    appearance:none;
+    -webkit-appearance:none;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+    margin:0;
+    color:var(--navy-deep);
+  }
+  .container{
+    max-width:var(--max-w);
+    margin:0 auto;
+    padding:0 var(--edge);
+  }
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--ocean);
+    outline-offset:3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation-duration:0.01ms !important; transition-duration:0.01ms !important; }
+  }
+
+  /* ---------- Reveal-on-scroll ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity 0.9s cubic-bezier(.22,.61,.36,1), transform 0.9s cubic-bezier(.22,.61,.36,1);
+  }
+  .reveal.is-visible{ opacity:1; transform:translateY(0); }
+  .reveal-group .reveal:nth-child(1){ transition-delay:0s; }
+  .reveal-group .reveal:nth-child(2){ transition-delay:0.12s; }
+  .reveal-group .reveal:nth-child(3){ transition-delay:0.24s; }
+  .reveal-group .reveal:nth-child(4){ transition-delay:0.36s; }
+  .reveal-group .reveal:nth-child(5){ transition-delay:0.48s; }
+  .reveal-group .reveal:nth-child(6){ transition-delay:0.6s; }
+
+  /* ---------- Nav ---------- */
+  .nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:26px var(--edge);
+    transition:background 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
+  }
+  .nav.scrolled{
+    background:rgba(251,249,244,0.92);
+    backdrop-filter:blur(10px);
+    padding:16px var(--edge);
+    box-shadow:0 1px 0 rgba(14,47,60,0.08);
+  }
+  .nav-brand{ display:flex; align-items:baseline; gap:0.7rem; }
+  .nav-mark{
+    font-family:'Fraunces', serif;
+    font-size:1.4rem;
+    font-weight:500;
+    color:#fff;
+    transition:color 0.4s ease;
+  }
+  .nav.scrolled .nav-mark{ color:var(--navy-deep); }
+  .concept-tag{
+    font-size:0.66rem;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,0.75);
+    border:1px solid rgba(255,255,255,0.45);
+    border-radius:99px;
+    padding:0.25rem 0.6rem;
+    white-space:nowrap;
+    transition:color 0.4s ease, border-color 0.4s ease;
+  }
+  .nav.scrolled .concept-tag{ color:var(--ink-soft); border-color:rgba(14,47,60,0.28); }
+  .nav-links{
+    display:flex; gap:2.4rem; align-items:center;
+    list-style:none; margin:0; padding:0;
+  }
+  .nav-links a{
+    font-size:0.94rem;
+    color:rgba(255,255,255,0.88);
+    transition:color 0.4s ease, opacity 0.2s ease;
+  }
+  .nav.scrolled .nav-links a{ color:var(--ink-soft); }
+  .nav-links a:hover{ opacity:0.7; }
+  .nav-cta{
+    border:1px solid rgba(255,255,255,0.6);
+    padding:0.6rem 1.35rem;
+    border-radius:2px;
+    font-size:0.88rem;
+    cursor:pointer;
+    transition:background 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+  }
+  .nav.scrolled .nav-cta{ border-color:var(--navy); color:var(--navy-deep); }
+  .nav-cta:hover{ background:#fff; color:var(--navy-deep); }
+  .nav.scrolled .nav-cta:hover{ background:var(--navy-deep); color:#fff; }
+
+  /* Mobile hamburger toggle */
+  .nav-toggle{
+    display:none;
+    position:relative;
+    width:34px; height:34px;
+    padding:0;
+    border:0;
+    background:transparent;
+    cursor:pointer;
+    align-items:center;
+    justify-content:center;
+  }
+  .nav-toggle .bar{
+    position:absolute;
+    left:6px; right:6px;
+    height:2px;
+    background:#fff;
+    border-radius:2px;
+    transition:transform 0.35s cubic-bezier(.22,.61,.36,1), opacity 0.25s ease, background 0.4s ease;
+  }
+  .nav.scrolled .nav-toggle .bar{ background:var(--navy-deep); }
+  .nav-toggle .bar:nth-child(1){ top:11px; }
+  .nav-toggle .bar:nth-child(2){ top:19px; }
+  .nav-toggle .bar:nth-child(3){ top:27px; }
+  .nav-toggle[aria-expanded="true"] .bar:nth-child(1){ transform:translateY(8px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] .bar:nth-child(2){ opacity:0; }
+  .nav-toggle[aria-expanded="true"] .bar:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
+
+  /* Mobile nav panel */
+  .mobile-panel{
+    position:fixed;
+    inset:0;
+    z-index:99;
+    visibility:hidden;
+  }
+  .mobile-panel-backdrop{
+    position:absolute; inset:0;
+    background:rgba(8,30,39,0.45);
+    opacity:0;
+    transition:opacity 0.4s ease;
+  }
+  .mobile-panel-sheet{
+    position:absolute; top:0; right:0; bottom:0;
+    width:min(84vw, 360px);
+    background:var(--navy-deep);
+    padding:5.5rem 2.2rem 2.4rem;
+    display:flex; flex-direction:column;
+    transform:translateX(100%);
+    transition:transform 0.45s cubic-bezier(.22,.61,.36,1);
+  }
+  .mobile-panel.is-open{ visibility:visible; }
+  .mobile-panel.is-open .mobile-panel-backdrop{ opacity:1; }
+  .mobile-panel.is-open .mobile-panel-sheet{ transform:translateX(0); }
+  .mobile-panel-close{
+    position:absolute; top:1.6rem; right:1.6rem;
+    width:38px; height:38px;
+    border:1px solid rgba(255,255,255,0.3);
+    border-radius:50%;
+    background:transparent;
+    color:#fff;
+    font-size:1.1rem;
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .mobile-links{
+    list-style:none; margin:0; padding:0;
+    display:flex; flex-direction:column; gap:0.4rem;
+  }
+  .mobile-links a{
+    display:block;
+    padding:0.85rem 0;
+    font-family:'Fraunces', serif;
+    font-size:1.35rem;
+    color:#fff;
+    border-bottom:1px solid rgba(255,255,255,0.12);
+  }
+  .mobile-panel .btn{ margin-top:2rem; }
+  .mobile-panel-tag{
+    margin-top:auto;
+    font-size:0.72rem;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,0.5);
+  }
+  body.menu-open{ overflow:hidden; }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    height:100svh;
+    min-height:560px;
+    overflow:hidden;
+    display:flex;
+    align-items:flex-end;
+  }
+  .hero-bg{
+    position:absolute; inset:-8% -2% -8% -2%;
+    background-image:url('https://images.unsplash.com/photo-1672841828459-bc913fdcd995?crop=entropy&cs=srgb&fm=jpg&ixlib=rb-4.1.0&w=1920&q=80');
+    background-size:cover;
+    background-position:center 55%;
+    will-change:transform;
+  }
+  .hero-scrim{
+    position:absolute; inset:0;
+    background:
+      linear-gradient(180deg, rgba(8,30,39,0.42) 0%, rgba(8,30,39,0.12) 32%, rgba(8,30,39,0.2) 62%, rgba(8,30,39,0.78) 100%);
+  }
+  .hero-content{
+    position:relative;
+    z-index:2;
+    width:100%;
+    padding:0 var(--edge) 6.5vh;
+    color:#fff;
+  }
+  .hero-inner{ max-width:var(--max-w); margin:0 auto; }
+  .hero-title{
+    font-size:clamp(2.6rem, 6.4vw, 5.2rem);
+    line-height:1.03;
+    max-width:14ch;
+    font-weight:400;
+    color:#fff;
+  }
+  .hero-title em{
+    font-style:italic;
+    font-weight:300;
+    color:var(--sand);
+  }
+  .hero-sub{
+    margin:1.6rem 0 2.4rem;
+    max-width:38ch;
+    font-size:1.08rem;
+    color:rgba(255,255,255,0.86);
+  }
+  .hero-actions{ display:flex; gap:1.1rem; align-items:center; flex-wrap:wrap; }
+
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:0.95rem 2.1rem;
+    font-size:0.92rem;
+    font-family:'Manrope', sans-serif;
+    font-weight:600;
+    border-radius:2px;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform 0.35s cubic-bezier(.22,.61,.36,1), background 0.35s ease, color 0.35s ease, box-shadow 0.35s ease;
+  }
+  .btn-primary{ background:var(--navy-deep); color:#fff; }
+  .btn-primary:hover{ background:var(--ocean); transform:translateY(-2px); box-shadow:0 10px 24px -8px rgba(28,110,131,0.55); }
+  .btn-ghost{ background:transparent; color:#fff; border-color:rgba(255,255,255,0.55); }
+  .btn-ghost:hover{ background:rgba(255,255,255,0.12); transform:translateY(-2px); }
+  .btn-dark{ background:transparent; color:var(--navy-deep); border-color:var(--navy-deep); }
+  .btn-dark:hover{ background:var(--navy-deep); color:#fff; transform:translateY(-2px); }
+
+  .scroll-cue{
+    position:absolute; bottom:26px; right:var(--edge);
+    z-index:2; color:rgba(255,255,255,0.75);
+    display:flex; align-items:center; gap:10px; font-size:0.8rem;
+  }
+  .scroll-cue .line{ width:1px; height:36px; background:rgba(255,255,255,0.55); position:relative; overflow:hidden; }
+  .scroll-cue .line::after{
+    content:''; position:absolute; top:-100%; left:0; width:100%; height:100%;
+    background:#fff; animation:cueDrop 2.2s ease-in-out infinite;
+  }
+  @keyframes cueDrop{ 0%{ top:-100%;} 60%{ top:100%;} 100%{ top:100%;} }
+
+  /* ---------- Intro / About ---------- */
+  .about{
+    background:var(--sand-light);
+    padding:min(14vw, 150px) 0 min(11vw, 120px);
+  }
+  .about-grid{
+    display:grid;
+    grid-template-columns:0.92fr 1.08fr;
+    gap:clamp(2.5rem, 6vw, 6rem);
+    align-items:center;
+  }
+  .about-copy .kicker{
+    display:block;
+    font-size:0.85rem;
+    letter-spacing:0.02em;
+    color:var(--ocean);
+    margin-bottom:1.1rem;
+    font-weight:600;
+  }
+  .about-copy h2{
+    font-size:clamp(1.9rem, 3.4vw, 2.7rem);
+    line-height:1.16;
+    margin-bottom:1.4rem;
+  }
+  .about-copy p{ color:var(--ink-soft); max-width:46ch; }
+  .about-copy p + p{ margin-top:1rem; }
+  .about-stats{
+    display:flex; gap:2.6rem; margin-top:2.4rem;
+    border-top:1px solid rgba(14,47,60,0.14);
+    padding-top:1.8rem;
+  }
+  .about-stats div strong{
+    display:block; font-family:'Fraunces', serif; font-size:1.7rem; color:var(--navy-deep); font-weight:500;
+  }
+  .about-stats div span{ font-size:0.85rem; color:var(--ink-soft); }
+
+  .about-media{ position:relative; }
+  .about-media .frame{
+    border-radius:6px;
+    overflow:hidden;
+    box-shadow:0 30px 60px -24px rgba(14,47,60,0.35);
+    aspect-ratio:4/5;
+  }
+  .about-media img{ width:100%; height:100%; object-fit:cover; }
+  .about-media .accent-block{
+    position:absolute;
+    width:46%;
+    aspect-ratio:1/1;
+    bottom:-10%;
+    left:-11%;
+    background:var(--navy-deep);
+    border-radius:6px;
+    z-index:-1;
+  }
+
+  /* ---------- Features ---------- */
+  .features{ padding:min(12vw, 130px) 0; background:var(--paper); }
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    gap:2rem; margin-bottom:clamp(2.6rem, 5vw, 4.2rem);
+    flex-wrap:wrap;
+  }
+  .section-head h2{ font-size:clamp(1.9rem, 3.4vw, 2.7rem); max-width:16ch; line-height:1.14; }
+  .section-head p{ color:var(--ink-soft); max-width:36ch; margin:0; }
+
+  .feature-row{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:clamp(1.4rem, 3vw, 2.2rem);
+  }
+  .feature-card{
+    background:#fff;
+    border-radius:6px;
+    overflow:hidden;
+    box-shadow:0 1px 0 rgba(14,47,60,0.06);
+    display:flex; flex-direction:column;
+  }
+  .feature-card:nth-child(2){ margin-top:clamp(0px, 5vw, 46px); }
+  .feature-media{
+    aspect-ratio:5/4;
+    overflow:hidden;
+    position:relative;
+  }
+  .feature-media img{
+    width:100%; height:100%; object-fit:cover;
+    transition:transform 0.9s cubic-bezier(.22,.61,.36,1), filter 0.6s ease;
+  }
+  .feature-media::after{
+    content:'';
+    position:absolute; inset:0;
+    box-shadow:inset 0 0 0 0 rgba(143,199,189,0);
+    transition:box-shadow 0.6s ease;
+    pointer-events:none;
+  }
+  .feature-card:hover .feature-media img{ transform:scale(1.08); }
+  .feature-card:hover .feature-media::after{ box-shadow:inset 0 0 60px 0 rgba(143,199,189,0.28); }
+  .feature-body{ padding:1.7rem 1.7rem 2rem; }
+  .feature-body h3{ font-size:1.3rem; margin-bottom:0.6rem; font-weight:500; }
+  .feature-body p{ color:var(--ink-soft); font-size:0.97rem; margin:0; }
+
+  /* ---------- Gallery ---------- */
+  .gallery{ background:var(--navy-deep); padding:min(12vw, 130px) 0; }
+  .gallery .section-head h2,
+  .gallery .section-head p{ color:#fff; }
+  .gallery .section-head p{ color:rgba(255,255,255,0.6); }
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(6, 1fr);
+    grid-auto-rows:14vw;
+    gap:14px;
+  }
+  .g-item{
+    position:relative;
+    overflow:hidden;
+    border-radius:4px;
+  }
+  .g-item img{
+    width:100%; height:100%; object-fit:cover;
+    transition:transform 1s cubic-bezier(.22,.61,.36,1), filter 0.5s ease;
+  }
+  .g-item::after{
+    content:'';
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(8,30,39,0) 55%, rgba(8,30,39,0.55) 100%);
+    opacity:0; transition:opacity 0.45s ease;
+  }
+  .g-item .g-cap{
+    position:absolute; left:16px; bottom:14px; z-index:2;
+    color:#fff; font-size:0.82rem; letter-spacing:0.01em;
+    opacity:0; transform:translateY(8px);
+    transition:opacity 0.4s ease, transform 0.4s ease;
+  }
+  .g-item:hover img{ transform:scale(1.1); filter:brightness(0.94) saturate(1.08); }
+  .g-item:hover::after{ opacity:1; }
+  .g-item:hover .g-cap{ opacity:1; transform:translateY(0); }
+
+  .g1{ grid-column:span 3; grid-row:span 2; }
+  .g2{ grid-column:span 3; grid-row:span 1; }
+  .g3{ grid-column:span 3; grid-row:span 1; }
+  .g4{ grid-column:span 2; grid-row:span 1; }
+  .g5{ grid-column:span 2; grid-row:span 1; }
+  .g6{ grid-column:span 2; grid-row:span 1; }
+
+  /* ---------- Final CTA ---------- */
+  .final-cta{
+    position:relative;
+    padding:min(20vw, 200px) var(--edge);
+    text-align:center;
+    overflow:hidden;
+  }
+  .final-cta-bg{
+    position:absolute; inset:-6%;
+    background-image:url('https://images.unsplash.com/photo-1647962431451-d0fdaf1cf21c?crop=entropy&cs=srgb&fm=jpg&ixlib=rb-4.1.0&w=1920&q=80');
+    background-size:cover;
+    background-position:center 42%;
+    will-change:transform;
+  }
+  .final-cta-scrim{
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(8,20,26,0.55) 0%, rgba(8,20,26,0.72) 100%);
+  }
+  .final-cta-inner{ position:relative; z-index:2; max-width:640px; margin:0 auto; }
+  .final-cta h2{
+    color:#fff;
+    font-size:clamp(2.1rem, 4.6vw, 3.4rem);
+    line-height:1.1;
+    margin-bottom:1.2rem;
+  }
+  .final-cta p{ color:rgba(255,255,255,0.82); margin-bottom:2.2rem; font-size:1.05rem; }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--sand);
+    padding:4.5rem 0 2rem;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr 1fr;
+    gap:2.5rem;
+    padding-bottom:3rem;
+    border-bottom:1px solid rgba(14,47,60,0.14);
+  }
+  .footer-brand .nav-mark{ color:var(--navy-deep); }
+  .footer-brand p{ color:var(--ink-soft); margin-top:1rem; max-width:32ch; font-size:0.94rem; }
+  .footer-col h4{
+    font-family:'Manrope', sans-serif; font-weight:700; font-size:0.82rem;
+    color:var(--navy-deep); margin-bottom:1rem;
+  }
+  .footer-col ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0.65rem; }
+  .footer-col a{ color:var(--ink-soft); font-size:0.94rem; transition:color 0.25s ease; }
+  .footer-col a:hover{ color:var(--navy-deep); }
+  .footer-bottom{
+    padding-top:1.6rem;
+    font-size:0.8rem; color:var(--ink-soft);
+    max-width:62ch;
+  }
+
+  /* ---------- Reservation modal ---------- */
+  .modal{
+    position:fixed; inset:0; z-index:200;
+    display:flex; align-items:center; justify-content:center;
+    padding:5vh 1.2rem;
+    visibility:hidden;
+  }
+  .modal.is-open{ visibility:visible; }
+  .modal-backdrop{
+    position:absolute; inset:0;
+    background:rgba(8,20,26,0.6);
+    opacity:0;
+    transition:opacity 0.35s ease;
+  }
+  .modal.is-open .modal-backdrop{ opacity:1; }
+  .modal-panel{
+    position:relative;
+    z-index:2;
+    width:100%; max-width:560px;
+    max-height:90vh;
+    overflow-y:auto;
+    background:var(--paper);
+    border-radius:8px;
+    padding:2.6rem clamp(1.6rem, 4vw, 3rem) 2.4rem;
+    box-shadow:0 40px 80px -20px rgba(8,20,26,0.45);
+    opacity:0;
+    transform:translateY(18px) scale(0.98);
+    transition:opacity 0.4s ease, transform 0.4s cubic-bezier(.22,.61,.36,1);
+  }
+  .modal.is-open .modal-panel{ opacity:1; transform:translateY(0) scale(1); }
+  .modal-close{
+    position:absolute; top:1.2rem; right:1.2rem;
+    width:36px; height:36px;
+    border-radius:50%;
+    border:1px solid rgba(14,47,60,0.18);
+    background:transparent;
+    color:var(--navy-deep);
+    font-size:1.05rem;
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:background 0.25s ease, color 0.25s ease;
+  }
+  .modal-close:hover{ background:var(--navy-deep); color:#fff; }
+  .modal-eyebrow{
+    font-size:0.78rem; letter-spacing:0.03em; text-transform:uppercase;
+    color:var(--ocean); font-weight:600; margin-bottom:0.6rem; display:block;
+  }
+  .modal-panel h2{ font-size:clamp(1.5rem, 3vw, 1.9rem); margin-bottom:0.5rem; }
+  .modal-note{ color:var(--ink-soft); font-size:0.92rem; margin-bottom:1.8rem; }
+  .field-row{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  .field{ margin-bottom:1.15rem; display:flex; flex-direction:column; gap:0.4rem; }
+  .field label{ font-size:0.84rem; font-weight:600; color:var(--navy-deep); }
+  .field input, .field select, .field textarea{
+    font-family:'Manrope', sans-serif;
+    font-size:0.96rem;
+    padding:0.75rem 0.9rem;
+    border:1px solid rgba(14,47,60,0.22);
+    border-radius:4px;
+    background:#fff;
+    color:var(--ink);
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{
+    outline:2px solid var(--ocean); outline-offset:1px; border-color:var(--ocean);
+  }
+  .field textarea{ resize:vertical; min-height:90px; font-family:'Manrope', sans-serif; }
+  .field-error{ font-size:0.8rem; color:#a4443a; min-height:1.1em; }
+  .modal-actions{ margin-top:0.6rem; }
+  .modal-actions .btn{ width:100%; }
+  .modal-demo-note{
+    margin-top:1.2rem; font-size:0.78rem; color:var(--ink-soft); text-align:center;
+  }
+  .modal-success{ text-align:center; padding:1.2rem 0 0.4rem; }
+  .modal-success .icon{
+    width:56px; height:56px; margin:0 auto 1.2rem;
+    border-radius:50%; background:var(--seafoam);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--navy-deep); font-size:1.5rem;
+  }
+  .modal-success h2{ margin-bottom:0.7rem; }
+  .modal-success p{ color:var(--ink-soft); max-width:38ch; margin:0 auto 1.6rem; }
+  [hidden]{ display:none !important; }
+
+  @media (max-width:520px){
+    .field-row{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:1000px){
+    .about-grid{ grid-template-columns:1fr; }
+    .about-media{ order:-1; max-width:420px; margin:0 auto; }
+    .feature-row{ grid-template-columns:1fr; }
+    .feature-card:nth-child(2){ margin-top:0; }
+    .gallery-grid{ grid-template-columns:repeat(2,1fr); grid-auto-rows:44vw; }
+    .g1,.g2,.g3,.g4,.g5,.g6{ grid-column:span 1; grid-row:span 1; }
+    .footer-grid{ grid-template-columns:1fr 1fr; }
+  }
+  @media (max-width:860px){
+    .nav-links{ display:none; }
+    .nav-cta{ display:none; }
+    .nav-toggle{ display:inline-flex; }
+  }
+  @media (max-width:640px){
+    .hero-actions{ width:100%; }
+    .btn{ flex:1; }
+    .footer-grid{ grid-template-columns:1fr; gap:2rem; }
+    .about-stats{ gap:1.6rem; }
+    .scroll-cue{ display:none; }
+    .concept-tag{ display:none; }
+  }
+
+</style>
+</head>
+<body>
+
+<nav class="nav" id="mainNav">
+  <div class="nav-brand">
+    <a href="#top" class="nav-mark">Sable Bay</a>
+    <span class="concept-tag">Concept</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">Stay</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button type="button" class="nav-cta" data-open-reservation>Reserve</button>
+  <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobilePanel" aria-label="Open menu">
+    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+  </button>
+</nav>
+
+<div class="mobile-panel" id="mobilePanel">
+  <div class="mobile-panel-backdrop" data-close-menu></div>
+  <div class="mobile-panel-sheet" role="dialog" aria-modal="true" aria-label="Site navigation">
+    <button type="button" class="mobile-panel-close" data-close-menu aria-label="Close menu">✕</button>
+    <ul class="mobile-links">
+      <li><a href="#about" data-close-menu>Stay</a></li>
+      <li><a href="#experience" data-close-menu>Experience</a></li>
+      <li><a href="#gallery" data-close-menu>Gallery</a></li>
+      <li><a href="#contact" data-close-menu>Contact</a></li>
+    </ul>
+    <button type="button" class="btn btn-primary" data-open-reservation data-close-menu>Reserve</button>
+    <span class="mobile-panel-tag">Hospitality concept — demo site</span>
+  </div>
+</div>
+
+<header class="hero" id="top">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-scrim"></div>
+  <div class="hero-content">
+    <div class="hero-inner">
+      <h1 class="hero-title">Where the tide<br>sets the <em>pace.</em></h1>
+      <p class="hero-sub">A quiet stretch of coastline, twelve rooms, and nowhere to be but the water's edge. Sable Bay is a slower kind of shore.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Plan your stay</a>
+        <a href="#experience" class="btn btn-ghost">See the coast</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span class="line"></span> Scroll</div>
+</header>
+
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-copy reveal">
+      <span class="kicker">A shoreline built for stillness</span>
+      <h2>Twelve rooms, one horizon, and the sound of water doing all the talking.</h2>
+      <p>Sable Bay sits where the palms thin out and the sand goes quiet — a short walk of open coastline, a reef that keeps the swell honest, and mornings that start with the tide instead of a clock.</p>
+      <p>There's no itinerary here. Just warm sand underfoot, salt in the air, and enough space between rooms that the loudest thing you'll hear is the surf.</p>
+      <div class="about-stats">
+        <div><strong>12</strong><span>Rooms &amp; suites</span></div>
+        <div><strong>600m</strong><span>Of private shoreline</span></div>
+        <div><strong>1</strong><span>Reef, kept wild</span></div>
+      </div>
+      <p style="margin-top:1rem; font-size:0.78rem; color:var(--ink-soft);">Illustrative figures — Sable Bay is a design concept, not a bookable property.</p>
+    </div>
+    <div class="about-media reveal">
+      <div class="accent-block"></div>
+      <div class="frame">
+        <img src="https://images.unsplash.com/photo-1468746587034-766ade47c1ac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=900" alt="Palm trees leaning over quiet white sand at Sable Bay" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features" id="experience">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Three ways the coast keeps you here</h2>
+      <p>Each stay is shaped around the water — how it moves, when it glows, and where it's calmest.</p>
+    </div>
+    <div class="feature-row reveal-group">
+      <article class="feature-card reveal">
+        <div class="feature-media">
+          <img src="https://images.unsplash.com/photo-1541417904950-b855846fe074?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=800" alt="Aerial view of palm-lined turquoise shoreline" loading="lazy">
+        </div>
+        <div class="feature-body">
+          <h3>Private coves</h3>
+          <p>Follow the palm line past the last suite and the beach empties out entirely — half a kilometre of sand that rarely sees another footprint.</p>
+        </div>
+      </article>
+      <article class="feature-card reveal">
+        <div class="feature-media">
+          <img src="https://images.unsplash.com/photo-1554213808-2556b739ca8a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=800" alt="Warm golden sunset over the sea" loading="lazy">
+        </div>
+        <div class="feature-body">
+          <h3>Golden hour, every evening</h3>
+          <p>The terrace faces due west. Around six, the whole coastline turns amber, and the bar starts pouring before anyone asks.</p>
+        </div>
+      </article>
+      <article class="feature-card reveal">
+        <div class="feature-media">
+          <img src="https://images.unsplash.com/photo-1776761420535-086a228991d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=800" alt="Infinity pool overlooking the ocean at a coastal resort" loading="lazy">
+        </div>
+        <div class="feature-body">
+          <h3>Ocean-edge suites</h3>
+          <p>Every room opens straight onto the water — no lobby to cross, no path to follow. Just a door, a deck, and the sea.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Moments from the shore</h2>
+      <p>A loose record of what the coast looks like on an ordinary day here.</p>
+    </div>
+    <div class="gallery-grid reveal-group">
+      <div class="g-item g1 reveal">
+        <img src="https://images.unsplash.com/photo-1501696461415-6bd6660c6742?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1000" alt="Bird's-eye view of waves breaking on the shore" loading="lazy">
+        <span class="g-cap">Reef break, low tide</span>
+      </div>
+      <div class="g-item g2 reveal">
+        <img src="https://images.unsplash.com/photo-1421284621639-884f4129b61d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=800" alt="Coconut palms against a bright sky" loading="lazy">
+        <span class="g-cap">The palm walk</span>
+      </div>
+      <div class="g-item g3 reveal">
+        <img src="https://images.unsplash.com/photo-1761427299513-fa82374893b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=800" alt="Turquoise water lapping a white sand beach" loading="lazy">
+        <span class="g-cap">Where the reef meets sand</span>
+      </div>
+      <div class="g-item g4 reveal">
+        <img src="https://images.unsplash.com/photo-1763688506750-0da09fe27324?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=700" alt="Pastel turquoise waves on the coastline" loading="lazy">
+        <span class="g-cap">Slack tide</span>
+      </div>
+      <div class="g-item g5 reveal">
+        <img src="https://images.unsplash.com/photo-1762854295057-dcbc9ed6258a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=700" alt="Green coastal cliffs above the blue ocean" loading="lazy">
+        <span class="g-cap">The northern headland</span>
+      </div>
+      <div class="g-item g6 reveal">
+        <img src="https://images.unsplash.com/photo-1779175829039-b99ff17c74fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=700" alt="Two chairs on a terrace overlooking the ocean" loading="lazy">
+        <span class="g-cap">Where evenings happen</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta" id="contact">
+  <div class="final-cta-bg" id="ctaBg"></div>
+  <div class="final-cta-scrim"></div>
+  <div class="final-cta-inner reveal">
+    <h2>Your tide is waiting.</h2>
+    <p>Twelve rooms, one shoreline, and a handful of dates left this season.</p>
+    <button type="button" class="btn btn-primary" data-open-reservation>Reserve your stay</button>
+    <p style="margin-top:1.1rem; margin-bottom:0; font-size:0.8rem; color:rgba(255,255,255,0.55);">Concept site — reservation requests are for demonstration only.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="nav-mark">Sable Bay</a>
+        <p>A twelve-room shoreline stay built around one idea: the ocean sets the schedule, not you.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#about">Stay</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Sable Bay</h4>
+        <ul>
+          <li><a href="#about">The Story</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Reservations</h4>
+        <ul>
+          <li><a href="mailto:reservations@sablebay.example">reservations@sablebay.example</a></li>
+          <li><a href="tel:+10000000000">+1 (000) 000-0000</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Sable Bay. Hospitality concept for design &amp; portfolio purposes only — not a real property, contact or booking service.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="modal" id="reservationModal">
+  <div class="modal-backdrop" data-close-modal></div>
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button type="button" class="modal-close" data-close-modal aria-label="Close reservation form">✕</button>
+
+    <form id="reservationForm" novalidate>
+      <span class="modal-eyebrow">Reservation request</span>
+      <h2 id="modalTitle">Request a stay at Sable Bay</h2>
+      <p class="modal-note">This is a concept project — submitting this form sends nothing anywhere. It simply demonstrates how a reservation request would work.</p>
+
+      <div class="field">
+        <label for="resName">Full name</label>
+        <input type="text" id="resName" name="name" autocomplete="name" required>
+        <span class="field-error" data-error-for="resName"></span>
+      </div>
+
+      <div class="field">
+        <label for="resEmail">Email</label>
+        <input type="email" id="resEmail" name="email" autocomplete="email" required>
+        <span class="field-error" data-error-for="resEmail"></span>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="resCheckin">Check-in</label>
+          <input type="date" id="resCheckin" name="checkin" required>
+          <span class="field-error" data-error-for="resCheckin"></span>
+        </div>
+        <div class="field">
+          <label for="resCheckout">Check-out</label>
+          <input type="date" id="resCheckout" name="checkout" required>
+          <span class="field-error" data-error-for="resCheckout"></span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="resGuests">Number of guests</label>
+        <select id="resGuests" name="guests" required>
+          <option value="">Select guests</option>
+          <option value="1">1 guest</option>
+          <option value="2" selected>2 guests</option>
+          <option value="3">3 guests</option>
+          <option value="4">4 guests</option>
+          <option value="5+">5 or more</option>
+        </select>
+        <span class="field-error" data-error-for="resGuests"></span>
+      </div>
+
+      <div class="field">
+        <label for="resMessage">Message / special request <span style="font-weight:400; color:var(--ink-soft);">(optional)</span></label>
+        <textarea id="resMessage" name="message" placeholder="Anniversary, dietary needs, arrival time…"></textarea>
+      </div>
+
+      <div class="modal-actions">
+        <button type="submit" class="btn btn-primary">Submit request</button>
+      </div>
+      <p class="modal-demo-note">Demo form only — no reservation is actually made and no data is sent or stored.</p>
+    </form>
+
+    <div class="modal-success" id="modalSuccess" hidden>
+      <div class="icon">✓</div>
+      <h2>Thank you.</h2>
+      <p>Your reservation request has been received. In a live version of this site, our team would follow up by email to confirm availability. Since Sable Bay is a concept project, no real booking has been made.</p>
+      <button type="button" class="btn btn-dark" id="modalReset">Make another request</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Nav background on scroll
+  const nav = document.getElementById('mainNav');
+  const onScrollNav = () => {
+    if (window.scrollY > 40) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  document.addEventListener('scroll', onScrollNav, { passive:true });
+  onScrollNav();
+
+  // Reveal on scroll
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealEls = document.querySelectorAll('.reveal');
+  if (reduceMotion) {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(el => io.observe(el));
+  }
+
+  // ---------- Mobile navigation panel ----------
+  const navToggle = document.getElementById('navToggle');
+  const mobilePanel = document.getElementById('mobilePanel');
+  let lastFocusedEl = null;
+
+  function openMenu() {
+    lastFocusedEl = document.activeElement;
+    mobilePanel.classList.add('is-open');
+    navToggle.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('menu-open');
+    const firstLink = mobilePanel.querySelector('a, button');
+    if (firstLink) firstLink.focus();
+    document.addEventListener('keydown', onMenuKeydown);
+  }
+  function closeMenu() {
+    mobilePanel.classList.remove('is-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+    document.removeEventListener('keydown', onMenuKeydown);
+    if (lastFocusedEl) lastFocusedEl.focus();
+  }
+  function onMenuKeydown(e) {
+    if (e.key === 'Escape') { closeMenu(); return; }
+    if (e.key === 'Tab') {
+      const focusable = mobilePanel.querySelectorAll('a, button');
+      const list = Array.from(focusable);
+      const first = list[0], last = list[list.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  }
+
+  navToggle.addEventListener('click', () => {
+    mobilePanel.classList.contains('is-open') ? closeMenu() : openMenu();
+  });
+  mobilePanel.querySelectorAll('[data-close-menu]').forEach(el => {
+    el.addEventListener('click', closeMenu);
+  });
+
+  // ---------- Reservation modal ----------
+  const modal = document.getElementById('reservationModal');
+  const form = document.getElementById('reservationForm');
+  const successView = document.getElementById('modalSuccess');
+  const modalResetBtn = document.getElementById('modalReset');
+  let lastModalFocusedEl = null;
+
+  function openModal() {
+    if (mobilePanel.classList.contains('is-open')) closeMenu();
+    lastModalFocusedEl = document.activeElement;
+    modal.classList.add('is-open');
+    document.body.classList.add('menu-open');
+    const firstField = modal.querySelector('input, select, textarea, button');
+    if (firstField) firstField.focus();
+    document.addEventListener('keydown', onModalKeydown);
+  }
+  function closeModal() {
+    modal.classList.remove('is-open');
+    document.body.classList.remove('menu-open');
+    document.removeEventListener('keydown', onModalKeydown);
+    if (lastModalFocusedEl) lastModalFocusedEl.focus();
+  }
+  function onModalKeydown(e) {
+    if (e.key === 'Escape') { closeModal(); return; }
+    if (e.key === 'Tab') {
+      const focusable = modal.querySelectorAll('input, select, textarea, button, a[href]');
+      const list = Array.from(focusable).filter(el => el.offsetParent !== null);
+      if (!list.length) return;
+      const first = list[0], last = list[list.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  }
+
+  document.querySelectorAll('[data-open-reservation]').forEach(el => {
+    el.addEventListener('click', openModal);
+  });
+  modal.querySelectorAll('[data-close-modal]').forEach(el => {
+    el.addEventListener('click', closeModal);
+  });
+
+  const todayISO = new Date().toISOString().split('T')[0];
+  form.resCheckin.min = todayISO;
+  form.resCheckout.min = todayISO;
+  form.resCheckin.addEventListener('change', () => {
+    if (form.resCheckin.value) form.resCheckout.min = form.resCheckin.value;
+  });
+
+  function clearErrors() {
+    form.querySelectorAll('.field-error').forEach(el => el.textContent = '');
+  }
+  function setError(id, msg) {
+    const el = form.querySelector(`[data-error-for="${id}"]`);
+    if (el) el.textContent = msg;
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    clearErrors();
+    let valid = true;
+
+    const name = form.resName.value.trim();
+    const email = form.resEmail.value.trim();
+    const checkin = form.resCheckin.value;
+    const checkout = form.resCheckout.value;
+    const guests = form.resGuests.value;
+
+    if (!name) { setError('resName', 'Please enter your name.'); valid = false; }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { setError('resEmail', 'Please enter a valid email.'); valid = false; }
+    if (!checkin) { setError('resCheckin', 'Please choose a check-in date.'); valid = false; }
+    if (!checkout) { setError('resCheckout', 'Please choose a check-out date.'); valid = false; }
+    if (checkin && checkout && checkout <= checkin) { setError('resCheckout', 'Must be after check-in.'); valid = false; }
+    if (!guests) { setError('resGuests', 'Please select the number of guests.'); valid = false; }
+
+    if (!valid) return;
+
+    form.hidden = true;
+    successView.hidden = false;
+    successView.querySelector('.btn').focus();
+  });
+
+  modalResetBtn.addEventListener('click', () => {
+    form.reset();
+    form.resGuests.value = '2';
+    clearErrors();
+    form.hidden = false;
+    successView.hidden = true;
+    closeModal();
+  });
+
+  // Subtle parallax on hero + final CTA backgrounds
+  if (!reduceMotion) {
+    const heroBg = document.getElementById('heroBg');
+    const ctaBg = document.getElementById('ctaBg');
+    const hero = document.getElementById('top');
+    const cta = document.getElementById('contact');
+    let ticking = false;
+
+    function updateParallax() {
+      const vh = window.innerHeight;
+
+      const heroRect = hero.getBoundingClientRect();
+      if (heroRect.bottom > 0 && heroRect.top < vh) {
+        heroBg.style.transform = `translateY(${heroRect.top * 0.28}px)`;
+      }
+
+      const ctaRect = cta.getBoundingClientRect();
+      if (ctaRect.bottom > 0 && ctaRect.top < vh) {
+        const progress = (vh - ctaRect.top) / (vh + ctaRect.height);
+        ctaBg.style.transform = `translateY(${(progress - 0.5) * 60}px)`;
+      }
+
+      ticking = false;
+    }
+
+    document.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    }, { passive:true });
+    updateParallax();
+  }
+</script>
+
+</body>
+</html>
